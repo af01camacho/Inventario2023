@@ -1,6 +1,8 @@
 import productModel from "../../../models/productModel/productModel.js";
 
 export const createProduct = async (req, res) => {
+  const userID = req.user.id;
+  
   const {
     codigo,
     nombre,
@@ -11,6 +13,7 @@ export const createProduct = async (req, res) => {
     categoria,
     valor,
     valortotal,
+  
   } = req.body;
   if (
     !codigo ||
@@ -26,7 +29,7 @@ export const createProduct = async (req, res) => {
     return res.status(400).json({ message: "¡Porfavor completa los campos.!" });
   }
   try {
-    const searchProduct = await userModel.findOne({ codigo });
+    const searchProduct = await productModel.findOne({ codigo });
     if (searchProduct) {
       return res
         .status(400)
@@ -42,10 +45,12 @@ export const createProduct = async (req, res) => {
       categoria,
       valor,
       valortotal,
+      id_user: userID
+      
     });
     const saveProduct = await newProduct.save();
-    res.status(200).send(newUser);
+    res.status(200).send(newProduct);
   } catch (error) {
-    console.log(error.messsage);
+    console.log(error);
   }
 };

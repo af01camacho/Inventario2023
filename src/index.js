@@ -9,10 +9,12 @@ const server = express();
 const port = process.env.PORT || 3000;
 const domainwhite = process.env.whitelist
 import { ConexionDB } from './database.js';
+import cookieParser from 'cookie-parser';
 ConexionDB();
 
 /* Middlewares */
 server.use(morgan('dev'))
+server.use(cookieParser())
 server.use(express.json())
 server.use(cors(domainwhite))
 

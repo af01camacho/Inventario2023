@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
     codigo : Number,
     nombre: String,
     factura : String,
-    fecha : Date,
+    fecha : String,
     cantidad : Number,
     descripcion : String,
     categoria : String,
