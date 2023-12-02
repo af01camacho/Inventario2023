@@ -1,4 +1,4 @@
-# Nombre del Proyecto - Frontend
+# Inventario - Frontend
 
 Breve descripción del proyecto.
 
