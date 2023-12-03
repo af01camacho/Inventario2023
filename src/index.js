@@ -8,9 +8,10 @@ import { user_routes } from './routes/userRoutes/userRoutes.js';
 const server = express();
 const port = process.env.PORT || 3000;
 const domainwhite = process.env.whitelist
-import { ConexionDB } from './database.js';
+import { ConexionMongo, ConexionMySQL } from './database.js';
 import cookieParser from 'cookie-parser';
-ConexionDB();
+ConexionMySQL();
+
 
 /* Middlewares */
 server.use(morgan('dev'))
